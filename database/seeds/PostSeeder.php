@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Post;
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 class PostSeeder extends Seeder
@@ -14,14 +15,15 @@ class PostSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 0; $i < 20; $i++) {
-            DB::table('posts')->insert([
-                'title' => $faker->realText('20', 2),
-                'content' => $faker->realText('200', 2),
-                'author' => $faker->name(),
-                'created_at' => now(),
-                'updated_at' => now(),
-                'published' => 1
-            ]);
+            $new_post = new Post();
+            $new_post->title = $faker->words(5, true);
+            $new_post->content = $faker->realText('20', 2);
+            $new_post->author = $faker->name();
+            $new_post->slug = Str::kebab($new_post->title);
+            $new_post->created_at = now();
+            $new_post->updated_at = now();
+            $new_post->is_public = 1;
+            $new_post->save();
         }
     }
 }

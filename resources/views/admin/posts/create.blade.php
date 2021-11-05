@@ -26,8 +26,8 @@
     <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Status</div>
         <div class="card-body">
-            <select class="form-control" name="published" id="published">
-                <option value="1">Published</option>
+            <select class="form-control" name="is_public" id="status">
+                <option value="1">Public</option>
                 <option value="0">Hidden</option>
 
             </select>

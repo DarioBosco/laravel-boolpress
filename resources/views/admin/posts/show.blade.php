@@ -28,7 +28,7 @@
 <div class="card my-3">
     <div class="card-header bg-primary fw-bold">Status</div>
     <div class="card-body">
-        <p class="card-text">{{($post->published) ? 'Published' : 'Hidden' }}</p>
+        <p class="card-text">{{($post->is_public) ? 'Public' : 'Hidden' }}</p>
     </div>
 </div>
 <div class="card my-3">

@@ -6,10 +6,10 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Title</th>
             <th scope="col">Author</th>
-            <th scope="col">Published</th>
+            <th scope="col">Status</th>
             <th scope="col">Controls</th>
         </tr>
     </thead>
@@ -19,7 +19,7 @@
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->author}}</td>
-            <td>{{($post->published) ? 'true' : 'false' }}</td>
+            <td>{{($post->is_public) ? 'Public' : 'Hidden' }}</td>
             <td>
                 <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Details</a>
                 <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post) }}">Modify</a>
