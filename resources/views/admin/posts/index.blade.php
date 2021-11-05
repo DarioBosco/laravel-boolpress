@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<a class="btn btn-primary mb-3" href="{{route('admin.posts.create')}}">Make a new post</a>
 <table class="table table-hover">
     <thead>
         <tr>

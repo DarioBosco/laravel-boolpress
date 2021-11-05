@@ -26,7 +26,7 @@ class PostController extends Controller
     */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -37,13 +37,17 @@ class PostController extends Controller
     */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $new_post = new Post();
+        $new_post->fill($form_data);
+        $new_post->save();
+
+        return redirect()->route('admin.posts.index')->with('created', 'Post Creato');
     }
 
     /**
     * Display the specified resource.
     *
-    * @param  int  $id
     * @return \Illuminate\Http\Response
     */
     public function show(Post $post)
@@ -54,7 +58,6 @@ class PostController extends Controller
     /**
     * Show the form for editing the specified resource.
     *
-    * @param  int  $id
     * @return \Illuminate\Http\Response
     */
     public function edit(Post $post)
