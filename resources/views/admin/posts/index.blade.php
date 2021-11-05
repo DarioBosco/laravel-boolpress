@@ -21,7 +21,7 @@
             <td>{{$post->author}}</td>
             <td>{{($post->published) ? 'true' : 'false' }}</td>
             <td>
-                <a class="btn btn-primary" href="">Details</a>
+                <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Details</a>
                 <a class="btn btn-warning" href="">Modify</a>
                 <a class="btn btn-danger" href="">Delete</a>
             </td>
