@@ -22,7 +22,7 @@
             <td>{{($post->published) ? 'true' : 'false' }}</td>
             <td>
                 <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Details</a>
-                <a class="btn btn-warning" href="">Modify</a>
+                <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post) }}">Modify</a>
                 <a class="btn btn-danger" href="">Delete</a>
             </td>
         </tr>
