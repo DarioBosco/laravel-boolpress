@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -40,6 +41,7 @@ class PostController extends Controller
         $form_data = $request->all();
         $new_post = new Post();
         $new_post->fill($form_data);
+        $new_post->slug = Str::kebab($new_post->title);
         $new_post->save();
 
         return redirect()->route('admin.posts.index')->with('created', 'Post Creato');
@@ -74,6 +76,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $form_data = $request->all();
+        $post->slug = Str::kebab($post->title);
         $post->update($form_data);
         return redirect()->route('admin.posts.index')->with('updated','Post aggiornato');
     }

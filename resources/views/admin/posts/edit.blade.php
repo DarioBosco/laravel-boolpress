@@ -38,6 +38,12 @@
             </select>
         </div>
     </div>
+    <div class="card my-3">
+        <div class="card-header bg-primary fw-bold">Slug</div>
+        <div class="card-body">
+            <input type="text" class="form-control" value="{{$post->slug}}"name="slug" id="slug">
+        </div>
+    </div>
     <div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
