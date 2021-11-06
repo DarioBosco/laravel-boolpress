@@ -34,6 +34,7 @@ Route::middleware('auth')->namespace('Admin')->prefix('dashboard')->name('admin.
 //Front Office
 Route::prefix('posts')->group(function() {
 
-    Route::resource('/', 'PostController')->name('index', 'posts_index');
+    Route::get('/', 'PostController@index')->name('posts_index');
+    Route::get('/{slug}', 'PostController@show')->name('posts_detail');
 });
 

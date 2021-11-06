@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Post;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -15,7 +12,7 @@ class PostController extends Controller
     */
     public function index()
     {
-        $posts = DB::select('select * from posts where is_public = ?', [1]);
+        $posts = Post::where('is_public', 1)->get();
         return view('user.index', compact('posts'));
     }
 
@@ -24,8 +21,12 @@ class PostController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function show(Post $post)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+        if(!$post){
+            abort(404);
+        }
+        return view('user.show', compact('post'));
     }
 }

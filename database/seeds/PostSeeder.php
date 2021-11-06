@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
             $new_post = new Post();
             $new_post->title = $faker->words(5, true);
-            $new_post->content = $faker->realText('20', 2);
+            $new_post->content = $faker->realText('800', 2);
             $new_post->author = $faker->name();
             $new_post->slug = Str::kebab($new_post->title);
             $new_post->created_at = now();

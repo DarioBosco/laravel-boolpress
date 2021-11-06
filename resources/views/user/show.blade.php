@@ -1,12 +1,11 @@
-@extends('layouts.dashboard')
-
+@extends('layouts.app')
 @section('content')
-<div class="card my-3">
+{{-- <div class="card my-3">
     <div class="card-header bg-primary fw-bold">Post ID</div>
     <div class="card-body">
         <p class="card-text">{{$post->id}}</p>
     </div>
-</div>
+</div> --}}
 <div class="card my-3">
     <div class="card-header bg-primary fw-bold">Post Title</div>
     <div class="card-body">
@@ -26,18 +25,6 @@
     </div>
 </div>
 <div class="card my-3">
-    <div class="card-header bg-primary fw-bold">Status</div>
-    <div class="card-body">
-        <p class="card-text">{{($post->is_public) ? 'Public' : 'Hidden' }}</p>
-    </div>
-</div>
-<div class="card my-3">
-    <div class="card-header bg-primary fw-bold">Slug</div>
-    <div class="card-body">
-        <p class="card-text">{{$post->slug}}</p>
-    </div>
-</div>
-<div class="card my-3">
     <div class="card-header bg-primary fw-bold">Creation Date</div>
     <div class="card-body">
         <p class="card-text">{{$post->created_at}}</p>
@@ -50,3 +37,4 @@
     </div>
 </div>
 @endsection
+
