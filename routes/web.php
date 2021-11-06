@@ -14,6 +14,7 @@ use \Illuminate\Support\Facades\Auth;
 |
 */
 Auth::routes();
+
 //Landing Page
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +30,10 @@ Route::middleware('auth')->namespace('Admin')->prefix('dashboard')->name('admin.
     Route::resource('/posts', 'PostController');
 
 });
+
+//Front Office
+Route::prefix('posts')->group(function() {
+
+    Route::resource('/', 'PostController')->name('index', 'posts_index');
+});
+
