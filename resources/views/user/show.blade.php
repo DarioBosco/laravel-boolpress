@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    {{-- <div class="card my-3">
-        <div class="card-header bg-primary fw-bold">Post ID</div>
-        <div class="card-body">
-            <p class="card-text">{{$post->id}}</p>
-        </div>
-    </div> --}}
     <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Post Title</div>
         <div class="card-body">
