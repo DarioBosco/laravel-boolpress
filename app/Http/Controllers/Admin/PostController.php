@@ -39,9 +39,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
+        $request->validate([
+            'title' => 'required|unique:posts',
+        ]);
         $new_post = new Post();
         $new_post->fill($form_data);
-        $new_post->slug = Str::kebab($new_post->title);
+        $new_post->slug = Str::slug($new_post->title);
         $new_post->save();
 
         return redirect()->route('admin.posts.index')->with('created', 'Post Creato');
@@ -76,7 +79,6 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $form_data = $request->all();
-        $post->slug = Str::kebab($post->title);
         $post->update($form_data);
         return redirect()->route('admin.posts.index')->with('updated','Post aggiornato');
     }

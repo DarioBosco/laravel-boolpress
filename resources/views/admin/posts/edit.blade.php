@@ -32,7 +32,7 @@
     <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Status</div>
         <div class="card-body">
-            <select class="form-control" name="is_public" id="status" value="{{$post->is_public}}">
+            <select class="form-control" name="is_public" id="status">
                 <option {{($post->is_public) ? 'selected' : NULL}} value="1">Public</option>
                 <option {{(!$post->is_public) ? 'selected' : NULL}} value="0">Hidden</option>
             </select>
