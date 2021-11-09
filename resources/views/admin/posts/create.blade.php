@@ -4,7 +4,6 @@
 <form action="{{route('admin.posts.store')}}" method="post">
     @csrf
     @method('POST')
-
     <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Post Title</div>
         <div class="card-body">
@@ -23,7 +22,18 @@
     <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Post Author</div>
         <div class="card-body">
-            <input type="text" class="form-control" name="author" id="author" value="{{old('author')}}">
+            <input type="text" class="form-control" name="author" id="author" value="{{Str::ucfirst(Auth::user()->name)}}">
+        </div>
+    </div>
+    <div class="card my-3">
+        <div class="card-header bg-primary fw-bold">Category</div>
+        <div class="card-body">
+            <select type="text" class="form-control" name="category_id" id="category_id">
+                <option value="">-- Seleziona una categoria --</option>
+                @foreach ($categories as $category)
+                <option {{old('category_id') == $category->id ? 'selected' : NULL}} value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="card my-3">
