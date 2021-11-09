@@ -30,6 +30,17 @@
         </div>
     </div>
     <div class="card my-3">
+        <div class="card-header bg-primary fw-bold">Category</div>
+        <div class="card-body">
+            <select type="text" class="form-control" name="category_id" id="category_id">
+                <option value="">-- Seleziona una categoria --</option>
+                @foreach ($categories as $category)
+                <option {{old('category_id', $post->category->id) == $category->id ? 'selected' : NULL}} value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Status</div>
         <div class="card-body">
             <select class="form-control" name="is_public" id="status">
