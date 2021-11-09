@@ -9,6 +9,7 @@
             <th scope="col">ID</th>
             <th scope="col">Title</th>
             <th scope="col">Author</th>
+            <th scope="col">Category</th>
             <th scope="col">Status</th>
             <th scope="col">Controls</th>
         </tr>
@@ -19,6 +20,11 @@
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->author}}</td>
+            <td>
+                @if ($post->category)
+                {{$post->category->name}}
+                @endif
+            </td>
             <td>{{($post->is_public) ? 'Public' : 'Hidden' }}</td>
             <td>
                 <a class="btn btn-primary" href="{{route('admin.posts.show', $post)}}">Details</a>
