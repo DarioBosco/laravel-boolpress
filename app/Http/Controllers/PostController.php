@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('is_public', 1)->get();
-        return view('user.index', compact('posts'));
+        return view('guest.index', compact('posts'));
     }
 
     /**
@@ -27,6 +27,6 @@ class PostController extends Controller
         if(!$post){
             abort(404);
         }
-        return view('user.show', compact('post'));
+        return view('guest.show', compact('post'));
     }
 }
