@@ -38,6 +38,16 @@
     </div>
 </div>
 <div class="card my-3">
+    <div class="card-header bg-primary fw-bold">Category</div>
+    <div class="card-body">
+        @if ($post->category)
+        <a href="{{route('admin.categories.show', $post->category->id)}}">{{$post->category->name}}</a>
+        @else
+        <p class="card-text">Nessuna categoria associata a questo post.</p>
+        @endif
+    </div>
+</div>
+<div class="card my-3">
     <div class="card-header bg-primary fw-bold">Creation Date</div>
     <div class="card-body">
         <p class="card-text">{{$post->created_at}}</p>

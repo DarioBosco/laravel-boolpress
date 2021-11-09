@@ -78,7 +78,7 @@ class CategoryController extends Controller
         $category->update($form_data);
         return redirect()->route('admin.categories.index')->with('updated','Categoria aggiornata');//
     }
-    
+
     /**
     * Remove the specified resource from storage.
     *
