@@ -28,6 +28,7 @@ Route::middleware('auth')->namespace('Admin')->prefix('dashboard')->name('admin.
 
     Route::get('/', 'HomeController@index')->name('index');
     Route::resource('/posts', 'PostController');
+    Route::resource('/categories', 'CategoryController');
 
 });
 
