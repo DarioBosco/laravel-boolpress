@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('author');
             $table->boolean('is_public');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
