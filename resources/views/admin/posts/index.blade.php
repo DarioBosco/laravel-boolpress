@@ -19,6 +19,7 @@
             <th scope="col">Title</th>
             <th scope="col">Author</th>
             <th scope="col">Category</th>
+            <th scope="col">Tags</th>
             <th scope="col">Status</th>
             <th scope="col">Controls</th>
         </tr>
@@ -32,6 +33,13 @@
             <td>
                 @if ($post->category)
                 {{$post->category->name}}
+                @endif
+            </td>
+            <td>
+                @if ($post->tags)
+                @foreach ($post->tags as $tag)
+                <span class="badge badge-success text-white">{{$tag->name}}</span>
+                @endforeach
                 @endif
             </td>
             <td>{{($post->is_public) ? 'Public' : 'Hidden' }}</td>
