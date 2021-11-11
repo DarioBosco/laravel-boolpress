@@ -48,6 +48,18 @@
     </div>
 </div>
 <div class="card my-3">
+    <div class="card-header bg-primary fw-bold">Tags</div>
+    <div class="card-body">
+        @if (!empty($post->tags))
+        @foreach ($post->tags as $tag)
+        <span class="badge badge-success text-white">{{$tag->name}}</span>
+        @endforeach
+        @else
+        <p class="card-text">Nessun tag associato a questo post.</p>
+        @endif
+    </div>
+</div>
+<div class="card my-3">
     <div class="card-header bg-primary fw-bold">Creation Date</div>
     <div class="card-body">
         <p class="card-text">{{$post->created_at}}</p>
