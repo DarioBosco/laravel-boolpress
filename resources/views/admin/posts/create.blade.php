@@ -37,6 +37,19 @@
         </div>
     </div>
     <div class="card my-3">
+        <div class="card-header bg-primary fw-bold">Tags</div>
+        <div class="card-body align-items-center">
+            <div class="form-group m-0">
+                @foreach ($tags as $tag)
+                <div class="form-check form-check-inline">
+                    <input value="{{ $tag->id }}" type="checkbox" name="tags[]" class="form-check-input" id="tag-{{$tag->id}}">
+                    <label class="form-check-label" for="tag-{{$tag->id}}">{{ $tag->name }}</label>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="card my-3">
         <div class="card-header bg-primary fw-bold">Status</div>
         <div class="card-body">
             <select class="form-control" name="is_public" id="status">

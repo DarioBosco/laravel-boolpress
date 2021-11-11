@@ -1,7 +1,16 @@
 @extends('layouts.dashboard')
 
 @section('content')
-
+@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+@if(Session::has($msg))
+<div class="alert alert-success alert-dismissible fade show status-message" role="alert">
+    {{ Session::get($msg) }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+@endforeach
 <a class="btn btn-primary mb-3" href="{{route('admin.posts.create')}}">Make a new post</a>
 <table class="table table-hover">
     <thead>
@@ -61,6 +70,8 @@
         @endforeach
     </tbody>
 </table>
+
+<script language="JavaScript" type="text/javascript">timedMsg()</script>
 @endsection
 
 

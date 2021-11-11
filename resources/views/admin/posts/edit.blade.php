@@ -1,5 +1,13 @@
 @extends('layouts.dashboard')
-
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 @section('content')
 <form action="{{route('admin.posts.update', $post->id)}}" method="post">
     @csrf
@@ -35,9 +43,26 @@
             <select type="text" class="form-control" name="category_id" id="category_id">
                 <option value="">-- Seleziona una categoria --</option>
                 @foreach ($categories as $category)
+                @if ($post->category)
                 <option {{old('category_id', $post->category->id) == $category->id ? 'selected' : NULL}} value="{{$category->id}}">{{$category->name}}</option>
+                @else
+                <option {{old('category_id') == $category->id ? 'selected' : NULL}} value="{{$category->id}}">{{$category->name}}</option>
+                @endif
                 @endforeach
             </select>
+        </div>
+    </div>
+    <div class="card my-3">
+        <div class="card-header bg-primary fw-bold">Tags</div>
+        <div class="card-body align-items-center">
+            <div class="form-group m-0">
+                @foreach ($tags as $tag)
+                <div class="form-check form-check-inline">
+                    <input {{$post->tags->contains($tag) ? 'checked' : null}} value="{{ $tag->id }}" type="checkbox" name="tags[]" class="form-check-input" id="tag-{{$tag->id}}">
+                    <label class="form-check-label" for="tag-{{$tag->id}}">{{ $tag->name }}</label>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="card my-3">
