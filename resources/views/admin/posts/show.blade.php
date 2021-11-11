@@ -50,7 +50,7 @@
 <div class="card my-3">
     <div class="card-header bg-primary fw-bold">Tags</div>
     <div class="card-body">
-        @if (!empty($post->tags))
+        @if (count($post->tags)) {{-- Trovare un modo migliore di effettuare questo controllo --}}
         @foreach ($post->tags as $tag)
         <span class="badge badge-success text-white">{{$tag->name}}</span>
         @endforeach
